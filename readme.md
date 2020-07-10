@@ -7,9 +7,10 @@
 <b>See brusher.js for new file.</b>
 
 ```javascript
+// use query selector in Brusher constructor options
 const brusher = new Brusher({
   image: "abstract.png",
-  element: ".querySelector",
+  element: ".querySelector", // target any DOM node
 });
 
 brusher.init();
