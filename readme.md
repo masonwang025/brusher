@@ -7,7 +7,7 @@
 ![demo](https://github.com/MasonWang025/brusher/blob/master/assets/demo.JPG?raw=true)
 ([View Demo](https://brusher.netlify.app/))
 
-<i>This is an improved version of [kamranahmedse's brusher](https://github.com/kamranahmedse/brusher).</i> This version can <b>target any DOM node</b> and allows you to <b>create multiple instances</b> of Brusher. It also includes <b>changed configuration setttings</b>.
+<i>This is an improved version of [kamranahmedse's brusher](https://github.com/kamranahmedse/brusher)</i>, that can <b>target any DOM node</b> and allows you to <b>create multiple instances</b> of Brusher. It also includes <b>changed configuration setttings</b> (see available options).
 
 ## Usage
 
