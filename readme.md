@@ -1,51 +1,20 @@
-# Modified Version of Brusher
+# Brusher
 
 <b>Demo: <a href="https://brusher.netlify.app/">brusher.netlify.app</a></b>
 
-<b>Changes: Any DOM node can be targeted by brusher.</b> Thus, hero backgrounds or any other element can have the background applied to it.
+<b>See brusher.js for code. </b> <i>Little vanilla JS library to add interactive backgrounds to your webpages.</i>
 
-<b>See brusher.js for new file.</b>
+![demo](https://github.com/MasonWang025/brusher/blob/master/assets/demo.JPG?raw=true)
+([View Demo](https://brusher.netlify.app/))
 
-```javascript
-// use query selector in Brusher constructor options
-const brusher = new Brusher({
-  image: "abstract.png",
-  element: ".querySelector", // target any DOM node
-});
-
-brusher.init();
-```
-
-![new demo](https://github.com/MasonWang025/brusher/blob/master/assets/demo.JPG?raw=true)
-[View Demo](https://brusher.netlify.app/)
-
-# Original Repo Info
-
-![old demo](https://i.imgur.com/Tq7TBnA.png)
-
-> Little vanilla JS library to add interactive backgrounds to your webpages - [View Demo](http://kamranahmed.info/brusher)
-
-## Installation
-
-Install it using yarn or npm
-
-```bash
-yarn add brusher
-```
-
-Or you may use unpkg
-
-```
-http://unpkg.com/brusher/dist/brusher.min.js
-```
+<i>This is an improved version of [kamranahmedse's brusher](https://github.com/kamranahmedse/brusher).</i> This version can <b>target any DOM node</b> and allows you to <b>create multiple instances</b> of Brusher. It also includes <b>added configuration setttings</b>.
 
 ## Usage
 
-For the basic usage, all you need to do is create an instance of `Brusher` and provide an image
+Download the brusher.js file.
+For the basic usage, all you need to do is create an instance of `Brusher` and provide an image.
 
 ```javascript
-import Brusher from "brusher";
-
 const brusher = new Brusher({
   image: "abstract.png",
 });
@@ -55,7 +24,7 @@ brusher.init();
 
 ## Available Options
 
-Here is the list of options that you may use
+Here is the list of options that you may use:
 
 ```javascript
 const brusher = new Brusher({
@@ -63,14 +32,13 @@ const brusher = new Brusher({
   keepCleared: true, // Put the blur back after user has cleared it
   stroke: 80, // Stroke size for the brush
   lineStyle: "round", // Brush style (round, square, butt)
-  autoBlur: false, // Brusher will use the provided image for the blurry background
-  autoBlurValue: 15, // Blur strength in pixels
+  removeStepsTime: 120, // how long old steps should last (does not matter for keepCleared: true)
 });
 
 brusher.init();
 ```
 
-A note on blurry background: although brusher is capable of generating blurry background by itself, it is recommended that you [blur the image yourself](http://pinetools.com/blur-image) and apply it to the body for improved performance. Brusher relies on CSS blur for the background. And rendering performance for the pre-provided blurred image would be of-course much better than that applied using CSS. Here is the sample CSS that you may use for the background
+A note on blurry background: [blur the image yourself](http://pinetools.com/blur-image) and apply it to the body for improved performance. Here is the sample CSS that you may use for the background
 
 ```css
 body {
@@ -83,4 +51,5 @@ body {
 
 ## License
 
+This was modified from Kamran Ahmed's original source code:
 MIT &copy; [Kamran Ahmed](https://twitter.com/kamranahmedse)

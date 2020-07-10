@@ -1,33 +1,56 @@
-/* bootswatch further customization */
-.navbar-toggler {
+/* github banner */
+.github-corner svg {
+  fill: #151513;
+  color: #fff;
+  position: absolute;
+  top: 0;
   border: 0;
+  right: 0;
+  z-index: 1031;
 }
-
-.navbar-toggler:focus {
-  outline: none;
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
 }
 
 /* styles */
 body {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
-  min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
 }
-.hero {
-  z-index: -1;
-  min-height: 500px;
+
+.section1 {
+  min-height: 100vh;
   background: url("./dark.jpg");
   background-size: cover;
 }
 
-.contentCard {
-  margin-top: -100px;
-}
-
-p {
-  font-size: 1.3em;
-}
-
-a,
-a:hover {
-  color: var(--dark);
+.section2 {
+  min-height: 100vh;
+  background: #222;
+  background-size: cover;
 }

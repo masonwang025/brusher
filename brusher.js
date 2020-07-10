@@ -16,14 +16,18 @@ class Brusher {
       image: null,
       stroke: 80,
       keepCleared: false,
-      autoBlur: false,
-      autoBlurValue: 15,
       lineStyle: "round",
       ...options,
     };
 
+    // if removeStepsTime not defined, define according to keepCleared
+    if (!this.options.removeStepsTime)
+      this.options.removeStepsTime = this.options.keepCleared ? 120 : 1000;
+
     // Support for any DOM Node
     this.options.domNode = document.querySelector(this.options.element);
+
+    this.options.domNode.style.zIndex = -2;
 
     this.drawTail = this.drawTail.bind(this);
     this.validateOptions();
@@ -92,47 +96,9 @@ class Brusher {
    * drawing canvas
    */
   prepareCanvas() {
-    if (this.options.autoBlur) {
-      this.attachBlurryBackground();
-    }
-
     this.prepareDrawingCanvas();
     this.prepareImageCanvas();
     this.loadSelectedImage();
-  }
-
-  /**
-   * Creates a blurry background for the element if needed
-   * @todo use CSS file and just apply a class
-   */
-  attachBlurryBackground() {
-    if (this.blurryStyleNode) {
-      return;
-    }
-
-    const blurryCss = `
-      ${this.options.element} { position: relative;  }
-      ${this.options.element}:before {
-        background-size: cover;
-        background-position: 0 0;
-        background-attachment: absolute;
-        content: '';
-        background-image: url('${this.options.image}');
-        z-index: -1;
-        display: block;
-        -webkit-filter: blur(${this.options.autoBlurValue}px);
-        filter: blur(${this.options.autoBlurValue}px); 
-        top: 0;
-        left: 0;
-      }
-    `;
-
-    const style = document.createElement("style");
-    style.type = "text/css";
-    style.append(document.createTextNode(blurryCss));
-    document.head.appendChild(style);
-
-    this.blurryStyleNode = style;
   }
 
   /**
@@ -147,9 +113,9 @@ class Brusher {
     const canvas = this.createCanvasNode();
 
     canvas.style.position = "absolute"; // HAS TO BE ABSOLUTE
-    canvas.style.top = "0";
-    canvas.style.left = "0";
-    canvas.style.zIndex = "-1";
+    canvas.style.top = 0;
+    canvas.style.left = 0;
+    canvas.style.zIndex = 0;
 
     this.drawBoardCanvas = canvas;
     this.drawBoardCanvasContext = canvas.getContext("2d");
@@ -198,9 +164,7 @@ class Brusher {
     this.removeOldSteps();
 
     window.cancelAnimationFrame(this.tailAnimationFrame);
-    if (this.mouseSteps.length > 0) {
-      this.tailAnimationFrame = window.requestAnimationFrame(this.drawTail);
-    }
+    this.tailAnimationFrame = window.requestAnimationFrame(this.drawTail);
 
     // Do not clear the drawn image if the blur is to be kept
     if (!this.options.keepCleared) {
@@ -271,7 +235,10 @@ class Brusher {
     const currentTimeStamp = Date.now();
 
     for (let counter = 0; counter < this.mouseSteps.length; counter++) {
-      if (currentTimeStamp - this.mouseSteps[counter].time > 1000) {
+      if (
+        currentTimeStamp - this.mouseSteps[counter].time >
+        this.options.removeStepsTime
+      ) {
         this.mouseSteps.length = counter;
       }
     }
@@ -285,6 +252,7 @@ class Brusher {
     const elementDimensions = this.getElementDimensions();
 
     const canvas = document.createElement("canvas");
+    canvas.className = this.options.element; // unique identifier
     canvas.width = elementDimensions.width;
     canvas.height = elementDimensions.height;
 
