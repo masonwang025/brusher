@@ -32,7 +32,7 @@ const brusher = new Brusher({
   keepCleared: true, // Put the blur back after user has cleared it
   stroke: 80, // Stroke size for the brush
   lineStyle: "round", // Brush style (round, square, butt)
-  removeStepsTime: 120, // how long old steps should last (does not matter for keepCleared: true)
+  removeStepsTime: 120, // how long old steps should last (does not matter for keepCleared: true, may lag if too large)
 });
 
 brusher.init();
