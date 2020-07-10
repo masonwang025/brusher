@@ -15,7 +15,7 @@ const brusher = new Brusher({
 brusher.init();
 ```
 
-![new demo](https://github.com/MasonWang025/Brusher/blob/master/assets/demo.jpeg?raw=true)
+![new demo](https://github.com/MasonWang025/brusher/blob/master/assets/demo.JPG?raw=true)
 [View Demo](https://brusher.netlify.app/)
 
 # Original Repo Info
