@@ -38,7 +38,7 @@ const brusher = new Brusher({
 brusher.init();
 ```
 
-A note on blurry background: [blur the image yourself](http://pinetools.com/blur-image) and apply it to the body for improved performance. Here is the sample CSS that you may use for the background
+A note on blurry background: blur the image yourself and apply it to the body for improved performance. Here is the sample CSS that you may use for the background
 
 ```css
 body {
