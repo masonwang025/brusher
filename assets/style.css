@@ -51,6 +51,6 @@ body {
 
 .section2 {
   min-height: 100vh;
-  background: #222;
+  background: url("./abstract2blur.png");
   background-size: cover;
 }

@@ -22,6 +22,8 @@ const brusher = new Brusher({
 brusher.init();
 ```
 
+This is the image that will be shown when brusher hovers over. To provide the original image, <b>set a CSS background.</b> <i>For example, use a blurred background or a black and white one (like the demo).</i>
+
 ## Available Options
 
 Here is the list of options that you may use:
