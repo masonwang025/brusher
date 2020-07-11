@@ -7,7 +7,7 @@
 ![demo](https://github.com/MasonWang025/brusher/blob/master/assets/demo.JPG?raw=true)
 ([View Demo](https://brusher.netlify.app/))
 
-<i>This is an improved version of [kamranahmedse's brusher](https://github.com/kamranahmedse/brusher).</i> This version can <b>target any DOM node</b> and allows you to <b>create multiple instances</b> of Brusher. It also includes <b>added configuration setttings</b>.
+<i>This is an improved version of [kamranahmedse's brusher](https://github.com/kamranahmedse/brusher)</i>, that can <b>target any DOM node</b> and allows you to <b>create multiple instances</b> of Brusher. It also includes <b>changed configuration setttings</b> (see available options).
 
 ## Usage
 
@@ -34,13 +34,13 @@ const brusher = new Brusher({
   keepCleared: true, // Put the blur back after user has cleared it
   stroke: 80, // Stroke size for the brush
   lineStyle: "round", // Brush style (round, square, butt)
-  removeStepsTime: 120, // how long old steps should last (does not matter for keepCleared: true)
+  removeStepsTime: 120, // how long old steps should last (does not matter for keepCleared: true, may lag if too large)
 });
 
 brusher.init();
 ```
 
-A note on blurry background: [blur the image yourself](http://pinetools.com/blur-image) and apply it to the body for improved performance. Here is the sample CSS that you may use for the background
+A note on blurry background: blur the image yourself and apply it to the body for improved performance. Here is the sample CSS that you may use for the background
 
 ```css
 body {
