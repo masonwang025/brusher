@@ -1,11 +1,11 @@
 # Brusher
 
-<b>Demo: <a href="https://brusher.netlify.app/">brusher.netlify.app</a></b>
+<b>Demo: <a href="https://masonwang025.github.io/brusher/">masonwang025.github.io/brusher</a></b>
 
 <b>See brusher.js for code. </b> <i>Little vanilla JS library to add interactive backgrounds to your webpages.</i>
 
 ![demo](https://github.com/MasonWang025/brusher/blob/master/assets/demo.JPG?raw=true)
-([View Demo](https://brusher.netlify.app/))
+([View Demo](https://masonwang025.github.io/brusher/))
 
 <i>You can <b>target any DOM node</b> and <b>create multiple instances</b> of Brusher.</i>
 
