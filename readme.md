@@ -7,7 +7,7 @@
 ![demo](https://github.com/MasonWang025/brusher/blob/master/assets/demo.JPG?raw=true)
 ([View Demo](https://brusher.netlify.app/))
 
-<i>You can <b>target any DOM node</b> and <b>create multiple instances</b> of Brusher.
+<i>You can <b>target any DOM node</b> and <b>create multiple instances</b> of Brusher.</i>
 
 ## Usage
 
